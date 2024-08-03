@@ -17,7 +17,8 @@ def menu_inicio():
         edad = input("Ingrese la edad: ")
         clase= Clases()
         profesion= Profesion()
-        
+        arma= Armas
+        nivel=Level()
     def Clases():
         while True:
             print("Clases: 1-Mago | 2-Paladin | 3- Guerrero | 4-Picaro | 5-Arquero | 6-Brujo | 7-Monje | 8-Virgen")
@@ -84,80 +85,92 @@ def menu_inicio():
     def Armas(clase):
         while True:
             
-         if clase== 'Mago':
-          weapon= input("Confirme su arma para continuar")
-          arma= "Baston de Madera"
-          print("Ha obtenido un "+ arma)
-          break
-         elif clase== 'Brujo':
-          weapon= input("Confirme su arma para continuar")
-          arma= "Baston de Madera"
-          print("Ha obtenido un "+ arma) 
-          break
-         elif clase== 'Guerrero':
-          try:
-            weapon= input("Escoja su arma")
-            print ('1-Espada de hierro | 2-Mandoble | 3-Maza')
-          except:
+            if clase== 'Mago':
+                weapon= input("Confirme su arma para continuar")
+                arma= "Baston de Madera"
+                print("Ha obtenido un "+ arma)
+                break
+            elif clase== 'Brujo':
+                weapon= input("Confirme su arma para continuar")
+                arma= "Baston de Madera"
+                print("Ha obtenido un "+ arma) 
+                break
+            elif clase== 'Guerrero':
+             try:
+                weapon= input("Escoja su arma")
+                print ('1-Espada de hierro | 2-Mandoble | 3-Maza')
+             except:
               print("Error escoja nuevamente")
-          else:
-            if weapon== 1:
-             arma=='Espada de hierro' 
-             print("Ha obtenido un "+ arma)
-             break
-            elif weapon== 2:
-             arma=='Mandoble' 
-             print("Ha obtenido un "+ arma)
-             break
-            elif weapon== 3:
-             arma=='Maza' 
-             print("Ha obtenido un "+ arma)
-             break
-         elif clase== 'Paladin':
-          try:
-            a= input("Escoja su arma")
-            print ('1-Espada de hierro | 2-Mandoble | 3-Maza')
-          except:
+             else:
+                if weapon== 1:
+                 arma=='Espada de hierro' 
+                 print("Ha obtenido un "+ arma)
+                 break
+                elif weapon== 2:
+                 arma=='Mandoble' 
+                 print("Ha obtenido un "+ arma)
+                 break
+                elif weapon== 3:
+                 arma=='Maza' 
+                 print("Ha obtenido un "+ arma)
+                 break
+            elif clase== 'Paladin':
+             try:
+                weapon= input("Escoja su arma")
+                print ('1-Espada de hierro | 2-Mandoble | 3-Maza')
+             except:
               print("Error escoja nuevamente")
-          else:
-            if weapon== 1:
-             arma=='Espada de hierro' 
-             print("Ha obtenido un "+ arma)
-             break
-            elif weapon== 2:
-             arma=='Mandoble' 
-             print("Ha obtenido un "+ arma)
-             break
-            elif weapon== 3:
-             arma=='Maza' 
-             print("Ha obtenido un "+ arma)
-             break   
-         if clase== 'Arquero':
-          weapon= input("Confirme su arma para continuar")
-          arma= "Arco de Madera"
-          print("Ha obtenido un "+ arma)
-          break   
-         if clase== 'Picaro':
-          weapon= input("Confirme su arma para continuar")
-          arma= "Cuchillo de hierro"
-          print("Ha obtenido un "+ arma)
-          break  
-         if clase== 'Monje':
-          print("No obtienes armas pero pegas mas fuerte a puño limpio")
-          weapon= input("Confirme para continuar")
-          arma= None
-          print("Ha mejorado su daño con los puños")
-          break 
-         if clase== 'Virgen':
-          print("Desconozco la razon de por que escogeria esta clase pero weno")
-          weapon= input("Confirme su arma para continuar")
-          arma= "Palo de Madera"
-          print("Ha obtenido un "+ arma)
-          break 
-    return  
-          
-            
-        
-        
-        
-    
+             else:
+                if weapon== 1:
+                 arma=='Espada de hierro' 
+                 print("Ha obtenido un "+ arma)
+                 break
+                elif weapon== 2:
+                 arma=='Mandoble' 
+                 print("Ha obtenido un "+ arma)
+                 break
+                elif weapon== 3:
+                 arma=='Maza' 
+                 print("Ha obtenido un "+ arma)
+                 break   
+            if clase== 'Arquero':
+                weapon= input("Confirme su arma para continuar")
+                arma= "Arco de Madera"
+                print("Ha obtenido un "+ arma)
+                break   
+            if clase== 'Picaro':
+                weapon= input("Confirme su arma para continuar")
+                arma= "Cuchillo de hierro"
+                print("Ha obtenido un "+ arma)
+                break  
+            if clase== 'Monje':
+                print("No obtienes armas pero pegas mas fuerte a puño limpio")
+                weapon= input("Confirme para continuar")
+                arma= None
+                print("Ha mejorado su daño con los puños")
+                break 
+            if clase== 'Virgen':
+                print("Desconozco la razon de por que escogeria esta clase pero weno")
+                weapon= input("Confirme su arma para continuar")
+                arma= "Palo de Madera"
+                print("Ha obtenido un "+ arma)
+                break 
+            return arma 
+
+    def Level():
+     nivel = 1
+     exp_requerida = nivel * 10
+     exp_obtenida = 0 
+     while True: 
+      if exp_obtenida == exp_requerida:  
+       nivel= nivel+1
+       exp_obtenida= 0
+       print(f"Felicidades ha subido a Nivel {nivel}")
+      elif exp_obtenida > exp_requerida :
+       nivel= nivel+1
+       exp_obtenida= 0
+       print(f"Felicidades ha subido a Nivel {nivel}")
+      else:
+          continue
+      return nivel
+         
