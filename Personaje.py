@@ -7,4 +7,4 @@ class Personaje():
        self.profesion = profesion
        self.nivel = nivel
        self.arma = arma
-          
+       

@@ -1,4 +1,5 @@
 from Personaje import Personaje
+from Estadisticas import Estadisticas
 
 def menu_inicio():
     print("\nBienvenido a Tragones y Mazmorras")
@@ -17,8 +18,9 @@ def menu_inicio():
         edad = input("Ingrese la edad: ")
         clase= Clases()
         profesion= Profesion()
-        arma= Armas
+        arma= Armas()
         nivel=Level()
+        stats=Stats_Base()
     def Clases():
         while True:
             print("Clases: 1-Mago | 2-Paladin | 3- Guerrero | 4-Picaro | 5-Arquero | 6-Brujo | 7-Monje | 8-Virgen")
@@ -67,18 +69,23 @@ def menu_inicio():
             else:
              if profesion== 1:
               profesionfin= 'Herrero'
+              print("Ha adquirido la habilidad de forjar armas")
               break
              elif profesion== 2:
               profesionfin= 'Medico'
+              print("Ha adquirido la habilidad de crear medicinas")
               break
              elif profesion== 3:
               profesionfin= 'Escriba'
+              print("Ha adquirido la habilidad de leer textos antiguos")
               break
              elif profesion== 4:
               profesionfin= 'Alquimista'
+              print("Ha adquirido la habilidad de crear pociones")
               break
              elif profesion== 5:
               profesionfin= 'Profeta'
+              print("Ha adquirido la capacidad de predecir movimientos futuros")
               break
             return profesionfin
         
@@ -113,7 +120,7 @@ def menu_inicio():
                 elif weapon== 2:
                  arma=='Mandoble' 
                  print("Ha obtenido un "+ arma)
-                 daño_arma= 10
+                 daño_arma= 11
                  break
                 elif weapon== 3:
                  arma=='Maza' 
@@ -135,7 +142,7 @@ def menu_inicio():
                 elif weapon== 2:
                  arma=='Mandoble' 
                  print("Ha obtenido un "+ arma)
-                 daño_arma= 10
+                 daño_arma= 11
                  break
                 elif weapon== 3:
                  arma=='Maza' 
@@ -170,20 +177,64 @@ def menu_inicio():
                 break 
             return arma 
 
-    def Level():
+    def Level(clase):
      nivel = 1
      exp_requerida = nivel * 10
-     exp_obtenida = 0 
+     exp_obtenida = 0
+     puntos_hab = 0 
      while True: 
       if exp_obtenida == exp_requerida:  
        nivel= nivel+1
        exp_obtenida= 0
+       puntos_hab= 3 + nivel/5
+       if(clase== 'Virgen'):
+        puntos_hab= 4 + nivel/5
        print(f"Felicidades ha subido a Nivel {nivel}")
       elif exp_obtenida > exp_requerida :
        nivel= nivel+1
        exp_obtenida= 0
+       if(clase== 'Virgen'):
+        puntos_hab= 4 + nivel/5
        print(f"Felicidades ha subido a Nivel {nivel}")
       else:
           continue
       return nivel
          
+    def Stats_Base(clase):
+        class Base(Estadisticas):
+         def __init__(self, vitalidad, defensa, suerte):
+            super().__init__(vitalidad, defensa, suerte)
+         while True:  
+            if(clase == 'Mago'):
+             vitalidad = 5
+             defensa = 2
+             suerte = 3
+            elif(clase == 'Paladin'):
+             vitalidad = 6
+             defensa = 4
+             suerte = 0
+            elif(clase == 'Guerrero'):
+             vitalidad = 8
+             defensa = 2
+             suerte = 0
+            elif(clase == 'Brujo'):
+             vitalidad = 4
+             defensa = 2
+             suerte = 4
+            elif(clase == 'Arquero'):
+             vitalidad = 5
+             defensa = 1
+             suerte = 4
+            elif(clase == 'Picaro'):
+             vitalidad = 3
+             defensa = 2
+             suerte = 5
+            elif(clase == 'Virgen'):
+             vitalidad = 3
+             defensa = 1
+             suerte = 6
+             
+    
+    def Level_Up(Level):
+        class Mejora(Stats_Base):
+        
