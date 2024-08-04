@@ -83,17 +83,20 @@ def menu_inicio():
             return profesionfin
         
     def Armas(clase):
+        daño_arma= 0
         while True:
             
             if clase== 'Mago':
                 weapon= input("Confirme su arma para continuar")
                 arma= "Baston de Madera"
                 print("Ha obtenido un "+ arma)
+                daño_arma= 6
                 break
             elif clase== 'Brujo':
                 weapon= input("Confirme su arma para continuar")
                 arma= "Baston de Madera"
-                print("Ha obtenido un "+ arma) 
+                print("Ha obtenido un "+ arma)
+                daño_arma= 6 
                 break
             elif clase== 'Guerrero':
              try:
@@ -105,14 +108,17 @@ def menu_inicio():
                 if weapon== 1:
                  arma=='Espada de hierro' 
                  print("Ha obtenido un "+ arma)
+                 daño_arma= 8
                  break
                 elif weapon== 2:
                  arma=='Mandoble' 
                  print("Ha obtenido un "+ arma)
+                 daño_arma= 10
                  break
                 elif weapon== 3:
                  arma=='Maza' 
                  print("Ha obtenido un "+ arma)
+                 daño_arma= 9
                  break
             elif clase== 'Paladin':
              try:
@@ -124,36 +130,43 @@ def menu_inicio():
                 if weapon== 1:
                  arma=='Espada de hierro' 
                  print("Ha obtenido un "+ arma)
+                 daño_arma= 8
                  break
                 elif weapon== 2:
                  arma=='Mandoble' 
                  print("Ha obtenido un "+ arma)
+                 daño_arma= 10
                  break
                 elif weapon== 3:
                  arma=='Maza' 
                  print("Ha obtenido un "+ arma)
+                 daño_arma= 9
                  break   
-            if clase== 'Arquero':
+            elif clase== 'Arquero':
                 weapon= input("Confirme su arma para continuar")
                 arma= "Arco de Madera"
                 print("Ha obtenido un "+ arma)
+                daño_arma= 6
                 break   
-            if clase== 'Picaro':
+            elif clase== 'Picaro':
                 weapon= input("Confirme su arma para continuar")
                 arma= "Cuchillo de hierro"
                 print("Ha obtenido un "+ arma)
+                daño_arma= 5
                 break  
-            if clase== 'Monje':
+            elif clase== 'Monje':
                 print("No obtienes armas pero pegas mas fuerte a puño limpio")
                 weapon= input("Confirme para continuar")
-                arma= None
+                arma= "Puños"
                 print("Ha mejorado su daño con los puños")
+                daño_arma= 5
                 break 
-            if clase== 'Virgen':
+            elif clase== 'Virgen':
                 print("Desconozco la razon de por que escogeria esta clase pero weno")
                 weapon= input("Confirme su arma para continuar")
                 arma= "Palo de Madera"
                 print("Ha obtenido un "+ arma)
+                daño_arma= 4
                 break 
             return arma 
 
