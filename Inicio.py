@@ -235,6 +235,6 @@ def menu_inicio():
              suerte = 6
              
     
-    def Level_Up(Level):
-        class Mejora(Stats_Base):
+    #def Level_Up(Level):
+       # class Mejora(Stats_Base):
         
