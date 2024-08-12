@@ -1,6 +1,6 @@
 class Estadisticas():
-    
-    def __init__(self, vitalidad, defensa, suerte):
+   
+   def __init__(self, vitalidad, defensa, suerte):
       self.vitalidad = vitalidad
       self.defensa = defensa
       self.suerte = suerte

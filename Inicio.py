@@ -91,7 +91,7 @@ def Profesion():
 def Armas(clase):
    daño_arma= 0
    while True:
-            
+      
       if clase== 'Mago':
          weapon= input("Confirme su arma para continuar")
          arma= "Baston de Madera"
@@ -180,28 +180,26 @@ def Level(clase):
    nivel = 1
    exp_requerida = nivel * 10
    exp_obtenida = 0
+   int(puntos_hab)
    puntos_hab = 0 
-   while True: 
-      if exp_obtenida == exp_requerida:  
-         nivel= nivel+1
-         exp_obtenida= 0
-         puntos_hab= 3 + nivel/5
-         if(clase== 'Virgen'):
-            puntos_hab= 4 + nivel/5
-            print(f"Felicidades ha subido a Nivel {nivel}")
-      elif exp_obtenida > exp_requerida :
-         nivel= nivel+1
-         exp_obtenida= 0
-         if(clase== 'Virgen'):
-            puntos_hab= 4 + nivel/5
-            print(f"Felicidades ha subido a Nivel {nivel}")
-      else:
-         continue
-   return nivel
+   if exp_obtenida == exp_requerida:  
+      nivel= nivel+1
+      exp_obtenida= 0
+      puntos_hab= 3 + nivel/5
+      if(clase== 'Virgen'):
+         puntos_hab= 4 + nivel/5
+         print(f"Felicidades ha subido a Nivel {nivel}")
+   elif exp_obtenida > exp_requerida :
+      nivel= nivel+1
+      exp_obtenida= 0
+      if(clase== 'Virgen'):
+         puntos_hab= 4 + nivel/5
+         print(f"Felicidades ha subido a Nivel {nivel}")
+
 
 def Stats_Base(clase):
    class Base(Estadisticas):
-      def __init__(self, vitalidad, defensa, suerte):
+      def __init__( vitalidad, defensa, suerte):
          super().__init__(vitalidad, defensa, suerte)
    while True:  
       if(clase == 'Mago'):
@@ -232,11 +230,5 @@ def Stats_Base(clase):
          vitalidad = 3
          defensa = 1
          suerte = 6
-
-
-#def Level_Up(Level):
-# class Mejora(Stats_Base):
-
-
 
 menu_inicio()
