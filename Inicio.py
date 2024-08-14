@@ -25,7 +25,14 @@ def menu_inicio():
          arma = Armas()
          nivel = Level()
          stats = Stats_Base()
-         print(f"\nEste es su personaje  \n{nombre} \n{edad} \n{clase} \n{profesion} \n{arma} \n{nivel} \n{stats} ")
+         print(f"\nEste es su personaje:   
+               \nNombre: {nombre} 
+               \nEdad: {edad} años 
+               \n Clase: {clase} 
+               \nProfesion: {profesion} 
+               \nArma: {arma} 
+               \nNivel: {nivel} 
+               \nStats: {stats} ")
          opcion1 = input("\nPresione cualquier tecla para aceptar o escriba 'No' para regresar al menú y deshacer el personaje: ")
          if(opcion1 == "No" ):
             return menu_inicio
