@@ -20,53 +20,58 @@ def menu_inicio():
          print("Crear Personaje")
          nombre = input("Nombre de su Personaje: ")
          edad = input("Ingrese la edad: ")
-         clase= Clases()
-         profesion= Profesion()
-         arma= Armas()
-         nivel=Level()
-         stats=Stats_Base()
+         clase = Clases()
+         profesion = Profesion()
+         arma = Armas()
+         nivel = Level()
+         stats = Stats_Base()
+         print(f"\nEste es su personaje  \n{nombre} \n{edad} \n{clase} \n{profesion} \n{arma} \n{nivel} \n{stats} ")
+         opcion1 = input("\nPresione cualquier tecla para aceptar o escriba 'No' para regresar al menú y deshacer el personaje: ")
+         if(opcion1 == "No" ):
+            return menu_inicio
+         else:
+            print("Bienvenido a Tragones y Mazmorras \nQue la Aventura comience! ")
+            time.sleep(2)
+            print("Generando terreno... ")
+            time.sleep(2)
+            print("Generando enemigos... ")
+            time.sleep(2)
 
 def Clases():
    while True:
       print("Clases: 1-Mago | 2-Paladin | 3- Guerrero | 4-Picaro | 5-Arquero | 6-Brujo | 7-Monje | 8-Virgen")
       try:
          clase = input("Escoja una clase: ")
-         int(clase)
       except:
          print("Opcion Invalida")
       else:
-         if clase == 1:
+         if clase == "1":
             clasefin= 'Mago'
             print("Bienvenido sea erudito arcano y conocedor de toda magia")
             break
-         elif clase == 2:
+         elif clase == "2":
             clasefin= 'Paladin'
             print("Me inclino ante usted y su honor caballero sagrado")
             break
-         elif clase == 3:
+         elif clase == "3":
             clasefin= 'Guerrero'
             print("Que su gran fortaleza sea la suficiente para su causa valiente guerrero")
             break
-         elif clase == 4:
+         elif clase == "4":
             clasefin= 'Picaro'
             print("Es hora de desvanecerse y ser uno con las sombras")
-            break
-         elif clase == 5:
+         elif clase == "5":
             clasefin= 'Arquero'
             print("Preparado para poner esas flechas sobre sus enemigos mi estimado francotirador")
-            break
-         elif clase == 6:
+         elif clase == "6":
             clasefin= 'Brujo'
             print("Sin importar los motivos, demuestrale al mundo la capacidad de tu poder")
-            break
-         elif clase == 7:
+         elif clase == "7":
             clasefin= 'Monje'
             print("Demuestrale al mundo que con los puños tienes la capacidad de derrotar hasta dragones")
-            break
-         elif clase == 8:
+         elif clase == "8":
             clasefin= 'Gran Sabio'    
             print("Ehh si escogistes esto es o porque eres un troll o porque le sabes a los easter-eggs :b")
-            break
          else:
             print("Opcion no Valida")
             return Clases()
@@ -79,24 +84,25 @@ def Profesion():
          profesion= input("Escoja una profesion ")
       except:
          print("Opcion Invalida")
+         return Profesion()
       else:
-         if profesion== 1:
+         if profesion==  "1":
             profesionfin= 'Herrero'
             print("Ha adquirido la habilidad de forjar armas")
             break
-         elif profesion== 2:
+         elif profesion== "2":
             profesionfin= 'Medico'
             print("Ha adquirido la habilidad de crear medicinas")
             break
-         elif profesion== 3:
+         elif profesion== "3":
             profesionfin= 'Escriba'
             print("Ha adquirido la habilidad de leer textos antiguos")
             break
-         elif profesion== 4:
+         elif profesion== "4":
             profesionfin= 'Alquimista'
             print("Ha adquirido la habilidad de crear pociones")
             break
-         elif profesion== 5:
+         elif profesion== "5":
             profesionfin= 'Profeta'
             print("Ha adquirido la capacidad de predecir movimientos futuros")
             break
@@ -105,65 +111,36 @@ def Profesion():
 
 
 def Armas(clase):
-   int(daño_arma)
+   
    while True:
-      
-      if clase== 'Mago':
+      if clase== 'Mago' or clase== 'Brujo':
          weapon= input("Confirme su arma para continuar")
          arma= "Baston de Madera"
          print("Ha obtenido un "+ arma)
          daño_arma = 6
          break
-      elif clase== 'Brujo':
-         weapon= input("Confirme su arma para continuar")
-         arma= "Baston de Madera"
-         print("Ha obtenido un "+ arma)
-         daño_arma = 6 
-         break
-      elif clase== 'Guerrero':
+      elif clase== 'Guerrero' or 'Paladin':
          try:
             weapon= input("Escoja su arma")
             print ('1-Espada de hierro | 2-Mandoble | 3-Maza')
          except:
             print("Error escoja nuevamente")
          else:
-            if weapon== 1:
-               arma=='Espada de hierro' 
+            if weapon== "1":
+               arma ='Espada de hierro' 
                print("Ha obtenido un "+ arma)
                daño_arma = 8
                break
-            elif weapon== 2:
-               arma=='Mandoble' 
+            elif weapon== "2":
+               arma ='Mandoble' 
                print("Ha obtenido un "+ arma)
                daño_arma = 11
                break
-            elif weapon== 3:
-               arma=='Maza' 
+            elif weapon== "3":
+               arma ='Maza' 
                print("Ha obtenido un "+ arma)
                daño_arma = 9
-               break
-            elif clase== 'Paladin':
-               try:
-                  weapon= input("Escoja su arma")
-                  print ('1-Espada de hierro | 2-Mandoble | 3-Maza')
-               except:
-                  print("Error escoja nuevamente")
-               else:
-                  if weapon== 1:
-                     arma=='Espada de hierro' 
-                     print("Ha obtenido un "+ arma)
-                     daño_arma = 8
-                     break
-                  elif weapon== 2:
-                     arma=='Mandoble' 
-                     print("Ha obtenido un "+ arma)
-                     daño_arma = 11
-                     break
-                  elif weapon== 3:
-                     arma=='Maza' 
-                     print("Ha obtenido un "+ arma)
-                     daño_arma = 9
-                     break   
+               break  
             elif clase== 'Arquero':
                weapon= input("Confirme su arma para continuar")
                arma= "Arco de Madera"
