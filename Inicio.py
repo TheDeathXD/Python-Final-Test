@@ -34,10 +34,8 @@ def menu_inicio():
          arma = Armas()
          time.sleep(1)
          nivelinicial = 1
-         stat1= Stats_Base(Estadisticas.vitalidad)
-         stat2= Stats_Base(Estadisticas.defensa)
-         stat3= Stats_Base(Estadisticas.suerte)
-         print(f"\nEste es su personaje: \nNombre: {nombre} \nEdad: {edad} años \n Clase: {clase} \nProfesion: {profesion} \nArma: {arma} \nNivel: {nivelinicial} \nStats: \n{stat1} \n{stat2} \n{stat3} ")
+         stats = Stats_Base()
+         print(f"\nEste es su personaje: \nNombre: {nombre} \nEdad: {edad} años \nClase: {clase} \nProfesion: {profesion} \nArma: {arma} \nNivel: {nivelinicial} \nStats: \n{stats} ")
          opcion1 = input("\nPresione cualquier tecla para aceptar o escriba 'No' para regresar al menú y deshacer el personaje: ")
          if(opcion1 == "No" ):
             return menu_inicio()
@@ -48,6 +46,7 @@ def menu_inicio():
             time.sleep(3)
             print("Generando enemigos... ")
             time.sleep(2)
+            print("Generando objetos...")
 
 def Clases():
    while True:
@@ -129,57 +128,49 @@ def Profesion():
 
 
 def Armas():
-   while True:
+   try:
+      print("Su arma correspondiente le será entregada")
+      input("Presiona cualquier tecla para continuar")
+   except:
+      print("Error")
+   else:
       if clasefin== 'Mago' or clasefin== 'Brujo':
-         weapon= input("Confirme su arma para continuar ")
          arma= "Baston de Madera"
          print("Ha obtenido un "+ arma)
          daño_arma = 6
-         break
-      elif clasefin== 'Guerrero' or 'Paladin':
+      elif clasefin== 'Guerrero' or clasefin== 'Paladin':
          print ('1-Espada de hierro | 2-Mandoble | 3-Maza')
          weapon= input("Escoja su arma: ")
          if weapon== "1":
             arma ='Espada de hierro' 
-            print("Ha obtenido un "+ arma)
+            print("Ha obtenido una "+ arma)
             daño_arma = 8
-            break
          elif weapon== "2":
             arma ='Mandoble' 
             print("Ha obtenido un "+ arma)
             daño_arma = 11
-            break
          elif weapon== "3":
             arma ='Maza' 
-            print("Ha obtenido un "+ arma)
+            print("Ha obtenido una "+ arma)
             daño_arma = 9
-            break  
       elif clasefin== 'Arquero':
-         weapon= input("Confirme su arma para continuar ")
          arma= "Arco de Madera"
          print("Ha obtenido un "+ arma)
-         daño_arma = 6
-         break   
+         daño_arma = 6   
       elif clasefin== 'Picaro':
-         weapon= input("Confirme su arma para continuar ")
          arma= "Cuchillo de hierro"
          print("Ha obtenido un "+ arma)
          daño_arma = 5
-         break  
       elif clasefin== 'Monje':
          print("No obtienes armas pero pegas mas fuerte a puño limpio")
-         weapon= input("Confirme para continuar ")
          arma= "Puños"
          print("Ha mejorado su daño con los puños")
          daño_arma = 5
-         break 
       elif clasefin== 'Gran Sabio':
          print("Desconozco la razon de por que escogeria esta clase pero weno")
-         weapon= input("Confirme su arma para continuar ")
          arma= "Palo de Madera"
          print("Ha obtenido un "+ arma)
          daño_arma = 4
-         break 
    return arma 
 
 def Level():
@@ -204,38 +195,25 @@ def Level():
 def Stats_Base():
    class Bases(Estadisticas): 
       if(clasefin == 'Mago'):
-         vitalidad = 5
-         defensa = 2
-         suerte = 3
+         general_stats = Estadisticas(5,2,3)
       elif(clasefin == 'Paladin'):
-         vitalidad = 6
-         defensa = 4
-         suerte = 0
+         general_stats = Estadisticas(6,4,0)
       elif(clasefin == 'Guerrero'):
-         vitalidad = 8
-         defensa = 2
-         suerte = 0
+         general_stats = Estadisticas(8,2,0)
       elif(clasefin == 'Brujo'):
-         vitalidad = 4
-         defensa = 2
-         suerte = 4
+         general_stats = Estadisticas(4,2,4)
       elif(clasefin == 'Arquero'):
-         vitalidad = 5
-         defensa = 1
-         suerte = 4
+         general_stats = Estadisticas(5,1,4)
       elif(clasefin == 'Picaro'):
-         vitalidad = 3
-         defensa = 2
-         suerte = 5
+         general_stats = Estadisticas(3,2,5)
       elif(clasefin == 'Gran Sabio'):
-         vitalidad = 3
-         defensa = 1
-         suerte = 6
-         
+         general_stats = Estadisticas(3,1,6)
+
 def LevelUp(estadistica):
    while(puntos_hab>0):
       estadistica = estadistica+1
       puntos_hab = puntos_hab - 1
    return estadistica
+
 
 menu_inicio()
