@@ -22,14 +22,12 @@ def menu_juego():
             
         else:
             if opcion == 1:
-               while True:
-                   limpiar()
-                   print("\nGestionar Personaje")
+                while True:
+                    limpiar()
+                    print("\nGestionar Personaje")
             elif opcion == 2:
                 print("Opcion 2")  
             elif opcion == 3:
                 print("Opcion 3")  
             elif opcion == 0:
                 break
- 
-                
