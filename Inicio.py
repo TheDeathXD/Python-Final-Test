@@ -24,22 +24,23 @@ def menu_inicio():
       elif(opcion == 1):
          print("Crear Personaje")
          nombre = input("Nombre de su Personaje: ")
-         time.sleep(1)
+         time.sleep(0.5)
          edad = input("Ingrese la edad: ")
-         time.sleep(1)
+         time.sleep(0.5)
          clase = Clases()
          time.sleep(1)
          profesion = Profesion()
          time.sleep(1)
-         arma = Armas()
+         armafin = Armas()
          time.sleep(1)
-         nivelinicial = 1
+         nivel = Level(nivel)
          stats = Stats_Base()
-         print(f"\nEste es su personaje: \nNombre: {nombre} \nEdad: {edad} años \nClase: {clase} \nProfesion: {profesion} \nArma: {arma} \nNivel: {nivelinicial} \nStats: \n{stats} ")
+         print(f"\nEste es su personaje: \nNombre: {nombre} \nEdad: {edad} años \nClase: {clase} \nProfesion: {profesion} \nArma: {armafin} \nNivel: {nivel} \nStats: \n{stats} ")
          opcion1 = input("\nPresione cualquier tecla para aceptar o escriba 'No' para regresar al menú y deshacer el personaje: ")
          if(opcion1 == "No" ):
             return menu_inicio()
          else:
+            main.limpiar()
             print("Bienvenido a Tragones y Mazmorras \nQue la Aventura comience! ")
             time.sleep(2)
             print("Generando terreno... ")
@@ -130,50 +131,50 @@ def Profesion():
 def Armas():
    try:
       print("Su arma correspondiente le será entregada")
-      input("Presiona cualquier tecla para continuar")
+      time.sleep(2)
    except:
       print("Error")
    else:
       if clasefin== 'Mago' or clasefin== 'Brujo':
-         arma= "Baston de Madera"
+         arma = "Baston de Madera"
          print("Ha obtenido un "+ arma)
          daño_arma = 6
       elif clasefin== 'Guerrero' or clasefin== 'Paladin':
          print ('1-Espada de hierro | 2-Mandoble | 3-Maza')
          weapon= input("Escoja su arma: ")
          if weapon== "1":
-            arma ='Espada de hierro' 
+            arma = 'Espada de hierro' 
             print("Ha obtenido una "+ arma)
             daño_arma = 8
          elif weapon== "2":
-            arma ='Mandoble' 
+            arma = 'Mandoble' 
             print("Ha obtenido un "+ arma)
             daño_arma = 11
          elif weapon== "3":
-            arma ='Maza' 
+            arma = 'Maza' 
             print("Ha obtenido una "+ arma)
             daño_arma = 9
       elif clasefin== 'Arquero':
-         arma= "Arco de Madera"
+         arma = "Arco de Madera"
          print("Ha obtenido un "+ arma)
          daño_arma = 6   
       elif clasefin== 'Picaro':
-         arma= "Cuchillo de hierro"
+         arma = "Cuchillo de hierro"
          print("Ha obtenido un "+ arma)
          daño_arma = 5
       elif clasefin== 'Monje':
          print("No obtienes armas pero pegas mas fuerte a puño limpio")
-         arma= "Puños"
+         arma = "Puños"
          print("Ha mejorado su daño con los puños")
          daño_arma = 5
       elif clasefin== 'Gran Sabio':
          print("Desconozco la razon de por que escogeria esta clase pero weno")
-         arma= "Palo de Madera"
+         arma = "Palo de Madera"
          print("Ha obtenido un "+ arma)
          daño_arma = 4
-   return arma 
 
-def Level():
+
+def Level(nivel):
    nivel=1
    exp_requerida = nivel * 10
    exp_obtenida = 0
