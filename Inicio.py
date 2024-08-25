@@ -46,13 +46,11 @@ def menu_inicio():
          time.sleep(0.5)   
          opcion1 = input("\nPresione cualquier tecla para aceptar o escriba 'No' para regresar al menú y deshacer el personaje: ")
          if(opcion1 == "No" ):
+            with open("personaje.txt",'w',encoding='UTF-8') as datos:
+               datos.write("")
             return menu_inicio()
          else:
             main.limpiar()
-            with open("GitHub\\Python-Final-Test\\personaje.txt",'a',encoding='UTF-8') as datos:
-               datos.write("\n")
-               for i in range(hoja):
-                  datos.write(f"\n {i} \n")
             print("Bienvenido a Tragones y Mazmorras \nQue la Aventura comience! ")
             time.sleep(2)
             print("Generando terreno... ")
