@@ -193,19 +193,19 @@ def Level():
 def Stats_Base():
    class Bases(Estadisticas):
       if(clasefin == 'Mago'):
-            general_stats = Estadisticas(5,2,3)
+         general_stats = Estadisticas(5,2,3)
       elif(clasefin == 'Paladin'):
-            general_stats = Estadisticas(6,4,0)
+         general_stats = Estadisticas(6,4,0)
       elif(clasefin == 'Guerrero'):
-            general_stats = Estadisticas(8,2,0)
+         general_stats = Estadisticas(8,2,0)
       elif(clasefin == 'Brujo'):
-            general_stats = Estadisticas(4,2,4)
+         general_stats = Estadisticas(4,2,4)
       elif(clasefin == 'Arquero'):
-            general_stats = Estadisticas(5,1,4)
+         general_stats = Estadisticas(5,1,4)
       elif(clasefin == 'Picaro'):
-            general_stats = Estadisticas(3,2,5)
+         general_stats = Estadisticas(3,2,5)
       elif(clasefin == 'Gran Sabio'):
-            general_stats = Estadisticas(3,1,6)
+         general_stats = Estadisticas(3,1,6)
 
 
 
