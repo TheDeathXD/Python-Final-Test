@@ -2,7 +2,7 @@ from Personaje import Personaje
 from Estadisticas import Estadisticas
 import time
 import main
-
+from Misiones import Misiones
 clasefin = 'Base'
 puntos_hab = 0
 nivel = 0
@@ -36,11 +36,12 @@ def menu_inicio():
          time.sleep(1)
          Level()
          stats = Stats_Base()
-         hoja= [nombre , edad , clase, profesion, arma, nivel , stats]
-         with open("personaje.txt",'a',encoding='UTF-8') as datos:
-            datos.write("\n Hoja de Personaje: ")
+         hoja= [nombre , edad , clasefin, profesion, arma, nivel , stats]
+         with open("personaje.txt",'r+',encoding='UTF-8') as datos:
+            datos.write("\n Hoja de Personaje: \n")
             for i in (hoja):
                datos.write(f"\n {i} \n")
+            datos.seek(0)
             leer= datos.read()
             print(leer)
          time.sleep(0.5)   
@@ -174,7 +175,7 @@ def Level():
    global puntos_hab
    nivel = 1
    exp_requerida = nivel * 10
-   exp_obtenida = 0
+   exp_obtenida = Misiones()
    if exp_obtenida == exp_requerida:  
       nivel= nivel+1
       exp_obtenida= 0
