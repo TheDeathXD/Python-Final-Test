@@ -2,7 +2,7 @@ from Personaje import Personaje
 from Estadisticas import Estadisticas
 import time
 import main
-from Misiones import Misiones
+
 clasefin = 'Base'
 puntos_hab = 0
 nivel = 0
@@ -36,19 +36,20 @@ def menu_inicio():
          time.sleep(1)
          Level()
          stats = Stats_Base()
-         hoja= [nombre , edad , clasefin, profesion, arma, nivel , stats]
-         with open("personaje.txt",'r+',encoding='UTF-8') as datos:
+         
+         with open("personaje.txt",'w',encoding='UTF-8') as datos:
             datos.write("\n Hoja de Personaje: \n")
-            for i in (hoja):
-               datos.write(f"\n {i} \n")
-            datos.seek(0)
-            leer= datos.read()
-            print(leer)
+            datos.write(f"{nombre}\n")
+            datos.write(f"{edad} años \n")
+            datos.write(f"{clasefin}\n")
+            datos.write(f"{profesion}\n")
+            datos.write(f"{nivel}\n")
+            datos.write(f"{stats}\n")
+         with open("personaje.txt",'r',encoding='UTF-8') as datos:
+            datos.read()
          time.sleep(0.5)   
          opcion1 = input("\nPresione cualquier tecla para aceptar o escriba 'No' para regresar al menú y deshacer el personaje: ")
          if(opcion1 == "No" ):
-            with open("personaje.txt",'w',encoding='UTF-8') as datos:
-               datos.write("")
             return menu_inicio()
          else:
             main.limpiar()
@@ -175,24 +176,18 @@ def Level():
    global puntos_hab
    nivel = 1
    exp_requerida = nivel * 10
-   exp_obtenida = Misiones()
-   if exp_obtenida == exp_requerida:  
+   exp_obtenida = 0
+   if exp_obtenida == exp_requerida or exp_obtenida > exp_requerida :  
       nivel= nivel+1
       exp_obtenida= 0
       puntos_hab= puntos_hab + 3 + nivel/5
       if(clasefin== 'Gran Sabio'):
          puntos_hab= puntos_hab + 4 + nivel/5
          print(f"Felicidades ha subido a Nivel {nivel}")
-   elif exp_obtenida > exp_requerida :
-      nivel= nivel+1
-      exp_obtenida= 0
-      if(clasefin== 'Gran Sabio'):
-         puntos_hab= puntos_hab + 4 + nivel/5
-         print(f"Felicidades ha subido a Nivel {nivel}")
 
 
 def Stats_Base():
-   class Bases(Estadisticas):
+   class Bases(Estadisticas()):
       if(clasefin == 'Mago'):
          general_stats = Estadisticas(5,2,3)
       elif(clasefin == 'Paladin'):
