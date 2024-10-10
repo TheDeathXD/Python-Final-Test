@@ -37,7 +37,7 @@ def menu_inicio():
          Level()
          stats = Stats_Base()
          
-         with open("personaje.txt",'w',encoding='UTF-8') as datos:
+         with open("Escritorio\\personaje.txt",'w',encoding='UTF-8') as datos:
             datos.write("\n Hoja de Personaje: \n")
             datos.write(f"{nombre}\n")
             datos.write(f"{edad} años \n")
@@ -45,15 +45,13 @@ def menu_inicio():
             datos.write(f"{profesion}\n")
             datos.write(f"{nivel}\n")
             datos.write(f"{stats}\n")
-         with open("personaje.txt",'r',encoding='UTF-8') as datos:
-            datos.read()
          time.sleep(0.5)   
          opcion1 = input("\nPresione cualquier tecla para aceptar o escriba 'No' para regresar al menú y deshacer el personaje: ")
          if(opcion1 == "No" ):
             return menu_inicio()
          else:
             main.limpiar()
-            print("Bienvenido a Tragones y Mazmorras \nQue la Aventura comience! ")
+            print("Bienvenido al mundo de Tragones y Mazmorras \nQue la Aventura comience! ")
             time.sleep(2)
             print("Generando terreno... ")
             time.sleep(3)
